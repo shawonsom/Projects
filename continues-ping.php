@@ -163,7 +163,7 @@
       <textarea id="domains" placeholder="example.com&#10;google.com&#10;8.8.8.8&#10;github.com"></textarea>
 
       <div class="controls">
-        <button id="startBtn">Start Continuous Ping</button>
+        <button id="startBtn">Start Ping</button>
         <button id="stopBtn">Stop Pinging</button>
         <div class="interval-control">
           <label>Interval:</label>

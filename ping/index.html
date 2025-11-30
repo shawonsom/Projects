@@ -123,7 +123,7 @@
                     throw new Error(`Server responded with status: ${response.status}`);
                 }
 
-                const data = await response.json(); // PHP returns JSON
+                const data = await response.json(); // PHP returns JSON data
 
                 const totalLatency = Math.round(performance.now() - startTime);
 
@@ -217,4 +217,5 @@
         startPinging();
     </script>
 </body>
+
 </html>

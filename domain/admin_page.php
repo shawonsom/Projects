@@ -8,7 +8,7 @@ error_reporting(E_ALL);
 
 // Static Authentication Credentials (CHANGE IN PRODUCTION!)
 $STATIC_USER = "admin";
-$STATIC_PASS = "admin123"; // CHANGE THIS!!
+$STATIC_PASS = "password"; // CHANGE THIS!!
 
 // --- 2. AUTHENTICATION LOGIC ---
 session_start();
@@ -32,7 +32,6 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
             $login_error = "Invalid username or password.";
         }
     }
-
     // Show login form
     ?>
     <!DOCTYPE html>
@@ -330,4 +329,5 @@ function cancelModify() {
     <?php endif; ?>
 </div>
 </body>
+
 </html>

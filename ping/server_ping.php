@@ -1,11 +1,6 @@
 <?php
 header('Content-Type: application/json');
-// Remove or restrict this in production! Only for local testing:
-// header('Access-Control-Allow-Origin: *');
-
-// -----------------------------------------------------
 // Get and sanitize IP/hostname
-// -----------------------------------------------------
 $ip = trim($_GET['ip'] ?? '');
 
 if (empty($ip)) {
@@ -68,4 +63,5 @@ if ($output !== null && preg_match($successPattern, $output)) {
 // -----------------------------------------------------
 // Output JSON result
 // -----------------------------------------------------
+
 echo json_encode($result);

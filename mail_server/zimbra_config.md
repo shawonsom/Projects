@@ -1,6 +1,34 @@
 # Installing Zimbra Open Source Edition (OSE) on Ubuntu 22.04 
 To run Zimbra **without a license**, you must use a **Community OSE Build** (such as those from Maldua or Intalio) because the "Official" version 10 binaries are usually locked behind a support portal.
 
+Minimum Hardware Specifications
+
+For a single-server installation (handling roughly 10–50 users), these are the requirements:
+
+| Resource | Absolute Minimum (Testing) | Recommended (Production) |
+| --- | --- | --- |
+| **CPU** | 64-bit 2.0 GHz (2 Cores) | 64-bit Quad-Core (4+ vCPUs) |
+| **RAM** | **8 GB** | **16 GB or more** |
+| **Disk Space** | 10 GB (Software only) | 50 GB to 250 GB+ (includes mail) |
+| **Swap Space** | 4 GB | Equal to RAM (up to 16GB) |
+
+> **Warning:** Attempting to run Zimbra with less than 8 GB of RAM will likely cause the "mailbox" service to crash or fail to start, as the Java heap size alone is often pre-configured to consume several gigabytes.
+
+---
+
+### 2. Network & OS Requirements
+
+Beyond the physical hardware, your Ubuntu 22.04 environment must be pre-configured to avoid "Dependency" or "Service Conflict" errors:
+
+* **Static IP Address:** Your server (`172.17.64.26`) must be static. Zimbra will fail if the IP changes via DHCP.
+* **DNS Records:** You must have a valid **A record** (mail.shimantosom.org) and an **MX record** (shimantosom.org) pointing to your IP. Zimbra checks these during installation.
+* **Disabled Services:**
+* **AppArmor:** Must be stopped/disabled (it interferes with Zimbra's process permissions).
+* **Systemd-resolved:** Must be disabled to free up port 53.
+* **Postfix/Exim:** Any existing mail transfer agents must be removed.
+
+------------------
+
 ### Phase 1: System Preparation
 Zimbra is very sensitive to hostname and DNS settings. Your current hostname `mail.shimantosom.org` is perfect.
 

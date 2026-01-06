@@ -85,7 +85,7 @@ wget https://github.com/maldua/zimbra-foss/releases/download/zimbra-foss-build-u
 
 # Extract
 tar -xvf zcs-10.1.10_GA_4200003.UBUNTU22_64.20251107221239.tgz
-mv zcs-10.1.10_GA_4200003.UBUNTU22_64.20251107221239.tgz zcs-10.1.10
+mv zcs-10.1.10_GA_4200003.UBUNTU22_64.20251107221239 zcs-10.1.10
 cd zcs-10.1.10
 
 ```

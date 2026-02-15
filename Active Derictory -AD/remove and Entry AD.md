@@ -37,12 +37,44 @@ To remove the computer and restart immediately, run:
 Remove-Computer -UnjoinDomainCredential (Get-Credential) -Restart
 
 ```
-
-* **What happens:** This will pop up a login box for your domain credentials, then automatically unjoin the PC and reboot it.
+To rejoin a Windows 11 computer to an Active Directory (AD) domain, you follow the same path as joining for the first time.
 
 ---
 
-### What to do after exiting
+## Method 1: Using Windows Settings
 
-* **Log in locally:** Use your local username. If you aren't sure of the name, try entering `.\username` at the login screen.
-* **Clean up AD:** If you are an IT admin, remember to delete the computer object from **Active Directory Users and Computers** on the Server to keep the directory clean.
+1. Go to **Settings > Accounts > Access work or school**.
+2. Click the **Connect** button.
+3. Do **not** enter an email address. Instead, look for the link at the bottom that says **"Join this device to a local Active Directory domain"**.
+4. Enter the **Domain Name** (e.g., `company.local`) and click **Next**.
+5. Enter the **Domain Administrator** credentials when prompted.
+6. Restart your computer.
+
+---
+
+## Method 2: Using System Properties (Classic)
+
+This is often more reliable if the Settings app link is missing.
+
+1. Press `Win + R`, type `sysdm.cpl`, and hit **Enter**.
+2. On the **Computer Name** tab, click **Change...**.
+3. Select the **Domain** radio button and type your domain name.
+4. Click **OK**. You will be prompted for domain credentials.
+5. After the "Welcome to the [Domain] domain" message appears, click **OK** and **Restart**.
+
+---
+
+## Method 3: Using PowerShell
+
+This is the fastest method and provides clear error messages if the join fails.
+
+1. Open **PowerShell** as an Administrator.
+2. Run the following command:
+```powershell
+Add-Computer -DomainName "yourdomain.com" -Restart
+
+```
+
+
+3. A login box will appear; enter your domain administrator credentials. The PC will automatically reboot and be joined to the domain.
+

@@ -453,12 +453,12 @@ echo:
 echo:                 Activation Methods:
 echo:
 if defined _hwidgo (
-call :dk_color3 %_White% "             [1] " %_Green% "HWID" %_White% "                - Windows"
+call :dk_color3 %_White% "             [1] " %_Green% "Active windows" %_White% "      - Windows"
 ) else (
 echo:             [1] HWID                - Windows
 )
 if defined _ohookgo (
-call :dk_color3 %_White% "             [2] " %_Green% "Ohook" %_White% "               - Office"
+call :dk_color3 %_White% "             [2] " %_Green% "Outlook" %_White% "               - Office"
 ) else (
 echo:             [2] Ohook               - Office
 )
